@@ -26,7 +26,19 @@ of the Service.				$ kubectl expose deployment "image name" --type=NodePort --po
 #Get nodes from the cluster		$ kubectl get nodes
 
 #Check that kubectl is configured 	
-to talk to your cluster			$kubectl version
+to talk to your cluster			$ kubectl version
+
+#To list your deployments		$ kubectl get deployments
+
+#This command starts a proxy to the 
+Kubernetes API server.			$ kubectl proxy --port=8080
 
 
+Kubernetis tutorial:
 
+$ export POD_NAME=$(kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')
+echo Name of the Pod: $POD_NAME
+
+$ curl http://localhost:8001/version
+
+$ kubectl proxy
