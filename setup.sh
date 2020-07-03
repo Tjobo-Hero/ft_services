@@ -29,7 +29,7 @@ echo -e "${GREEN}IP:${IP}${END}"
 echo -e "${GREEN}BUILDING IMAGES${END}"
 docker build -t nginx_image ./srcs/containers/nginx
 docker build -t service_test ./srcs/containers/test
-docker build -t ftps_image --build-arg IP=${IP} ./srcs/containers/ftps
+docker build -t ftps_image ./srcs/containers/ftps
 docker build -t mysql_image ./srcs/containers/mysql --build-arg IP=${IP}
 docker build -t wordpress_image ./srcs/containers/wordpress --build-arg IP=${IP}
 docker build -t phpmyadmin_image ./srcs/containers/phpmyadmin --build-arg IP=${IP}

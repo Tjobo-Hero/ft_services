@@ -1,7 +1,7 @@
 #!/bin/sh
 mkdir -p /ftps/$FTP_USER
 
-openssl req -x509 -nodes -days 7300 -newkey rsa:2048 -subj "/C=FR/ST=fr/L=Paris/O=School 42/CN=rchallie" -keyout /etc/ssl/private/pure-ftpd.pem -out /etc/ssl/private/pure-ftpd.pem
+openssl req -x509 -nodes -days 7300 -newkey rsa:2048 -subj "/C=FR/ST=NL/L=AMSTERDAM/O=CODAM/CN=tvan-cit" -keyout /etc/ssl/private/pure-ftpd.pem -out /etc/ssl/private/pure-ftpd.pem
 chmod 600 /etc/ssl/private/pure-ftpd.pem
 
 adduser -h /ftps/$FTP_USER -D $FTP_USER

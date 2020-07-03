@@ -1,4 +1,5 @@
-FROM alpine:latest
+  
+FROM alpine
 
 RUN apk upgrade && \
     printf '%s\n' \
