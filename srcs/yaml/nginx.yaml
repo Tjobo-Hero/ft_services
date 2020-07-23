@@ -16,7 +16,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-svc
+  name: nginx-service
   labels:
     app: nginx-app
 spec:

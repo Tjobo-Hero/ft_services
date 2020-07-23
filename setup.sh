@@ -28,7 +28,7 @@ echo -e "${GREEN}IP:${IP}${END}"
 
 echo -e "${GREEN}BUILDING IMAGES${END}"
 docker build -t nginx_image ./srcs/containers/nginx
-docker build -t service_test ./srcs/containers/test
+# docker build -t service_test ./srcs/containers/test
 docker build -t ftps_image ./srcs/containers/ftps
 docker build -t mysql_image ./srcs/containers/mysql --build-arg IP=${IP}
 docker build -t wordpress_image ./srcs/containers/wordpress --build-arg IP=${IP}
@@ -38,7 +38,7 @@ docker build -t grafana_image ./srcs/containers/grafana
 docker build -t telegraf_image  ./srcs/containers/telegraf
 
 echo -e "${GREEN}CREATING SERVICE WITH YAML FILES${END}"
-kubectl delete validatingwebhookconfiguration ingress-nginx-admission
+# kubectl delete validatingwebhookconfiguration ingress-nginx-admission
 kubectl create -f ./srcs/yaml
 # kubectl create deployment web --image=gcr.io/google-samples/hello-app:1.0
 # kubectl expose deployment web --type=NodePort --port=8080
