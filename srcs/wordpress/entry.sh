@@ -16,12 +16,12 @@ EOF
 	mysql -hmysql -uroot -p$MYSQL_ROOT_PASSWORD < $tfile
 	until [ $? != 1 ]
 	do
-		echo "wordpress 데이터베이스를 재성성 합니다."
+		echo "wordpress creating."
 		sleep 1
 		mysql -hmysql -uroot -p$MYSQL_ROOT_PASSWORD < $tfile
 	done
 	rm -f $tfile
-	# 이미 설정된 wordpress 웹사이트를 적용시킬 때
+	# change password
 	mysql -hmysql -Dwordpress -uroot -p$MYSQL_ROOT_PASSWORD < /tmp/wordpress.sql
 
 fi

@@ -54,6 +54,7 @@ sleep 10
 # eval $(minikube docker-env)
 
 cd ./srcs/
+echo -e "${GREEN}>>>>BUIDLING IMAGES<<<<${END}"
 echo -e "${GREEN}MYSQL IMAGE BUILD${END}"
 docker build -t service-mysql ./mysql > /dev/null
 echo -e "${GREEN}WORDPRESS IMAGE BUILD${END}"
@@ -70,10 +71,11 @@ echo -e "${GREEN}INFLUX DB IMAGE BUILD${END}"
 docker build -t service-influxdb ./influxdb > /dev/null
 echo -e "${GREEN}GRAFANA IMAGE BUILD${END}"
 docker build -t service-grafana ./grafana > /dev/null
-echo -e "${GREEN}IMAGES BUILD COMPLETED${END}"
+echo -e "${GREEN}>>>>IMAGES BUILD COMPLETED<<<<${END}"
 
 sleep 5
 
+echo -e "${GREEN}>>>>STARTING DEPLOYMENT<<<<${END}"
 echo -e "${GREEN}MYSQL DEPLOYMENT${END}"
 kubectl apply -f ./mysql/mysql.yaml > /dev/null
 echo -e "${GREEN}WORDPRESS DEPLOYMENT${END}"
@@ -96,6 +98,6 @@ kubectl apply -f ./telegraf/telegrafconf.yaml > /dev/null
 kubectl apply -f ./telegraf/telegraf.yaml > /dev/null
 echo -e "${GREEN}GRAFANA DEPLOYMENT${END}"
 kubectl apply -f ./grafana/grafana.yaml > /dev/null
-echo -e "${GREEN}DEPLOYMENT COMPLETED${END}"
+echo -e "${GREEN}>>>>DEPLOYMENT COMPLETED<<<<${END}"
 
 # minikube addons enable metrics-server

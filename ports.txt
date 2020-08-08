@@ -1,0 +1,19 @@
+/* List of ports */
+
+Nginx		80 > http > 301
+						443
+FTPS		21
+Wordpress	5050
+PhpMyAdmin	5000
+MYSQL		5000?
+Grafana		3000
+InfluxDB	3000?
+
+
+SQL WORDPRESS:
+
+https://www.wpbeginner.com/beginners-guide/beginners-guide-to-wordpress-database-management-with-phpmyadmin/
+
+Ingress controller:
+
+https://github.com/kubernetes/ingress-nginx/issues/5401

@@ -1,32 +1,116 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <title>FT_SERVICES</title>
-  <style>
-    body {
-      background-color: lightblue;
-    }
+        <title>FT_SERVICES CODAM</title>
+<style>
 
-    h1 {
-      color: white;
-      text-align: center;
-    }
+@import "bourbon";
 
-    p {
-      font-family: verdana;
-      font-size: 20px;
-    }
-  </style>
+* {
+	-webkit-transition-property: all;
+	-webkit-transition-duration: .2s;
+  -moz-transition-timing-function: cubic-bezier(100,50,21,6);
+	-moz-transition-property: all;
+	-moz-transition-duration: .2s;
+  -moz-transition-timing-function: cubic-bezier(100,50,21,6);
+}
+h1{  position: top;
+    color: #f44647;
+    font-weight: 800;
+    font-size: 140px;
+    line-height: 143px;
+    letter-spacing: -4px;
+    z-index: 1;
+    left: 0;
+    font-family:"Poppins", sans-serif;
+    transform: translate3d(13.5047px, 0px, 0px);
+}
+body {
+  background-color: #0029FA;
+  padding-top: 70px;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  font-weight:100;
+}
+
+a{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    
+}
+
+
+.btn {
+  position: relative;
+  display: inline-block;
+  width: 166px;
+  height: 45px;
+  font-size: 12px;
+  line-height: 45px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #f44647;
+  cursor: pointer;
+  overflow: hidden;
+}
+.btn svg {
+  position: absolute;
+  top: 0; left: 0;
+}
+.btn svg rect {
+  fill: none;
+  stroke: #f44647;
+  stroke-width: 3;
+  stroke-dasharray: 422, 0;
+}
+.btn:hover svg rect {
+  stroke-width: 8;
+  stroke-dasharray: 10, 310;
+  stroke-dashoffset: 33;
+}
+
+.btn:hover {
+  color:#f44647;
+  font-size:18px;
+  letter-spacing:1px;
+  font-weight:bold;
+}
+
+div.fixed {
+    position: fixed;
+    width: 50%;
+    bottom: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.1px;
+    font-size: 15px;
+    font-style: normal;
+    color: #ffffff;
+    } 
+
+</style>
 </head>
 <body>
-  <h1>My First CSS Example</h1>
-  <ul>
-    <li><a href="/wordpress/">wordpress</a></li>
-    <li><a href="/phpmyadmin/">phpmyadmin</a></li>
-    <li><a href="/grafana/">grafana</a></li>
-  </ul>
-  <p>This is a sample-Kmin.</p>
+<h1>WELCOME TO FT_SERVICES CHOOSE YOUR SERVICE</h1>
+<div class="btn">
+  <svg>
+    <rect x="0" y="0" fill="none" width="166" height="45"/>
+  </svg>
+  <a href="/wordpress/"style="text-decoration:none;color:#ffffff" > Wordpress </a>
+</div>
+<div class="btn">
+        <svg>
+          <rect x="0" y="0" fill="none" width="166" height="45"/>
+        </svg>
+        <a href="/phpmyadmin/"style="text-decoration:none;color:#ffff" > PhpMyadmin </a>
+      </div>
 </body>
-
+<div class="btn">
+    <a href="/grafana/"style="text-decoration:none;color:#ffff" > Grafana </a>
+        <svg>
+          <rect x="0" y="0" fill="none" width="166" height="45"/>
+        </svg>
+      </div>
+<div class="fixed"> Created by the fannypackman</div>
+</body>
 </html>

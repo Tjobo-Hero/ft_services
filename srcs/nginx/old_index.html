@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FT_SERVICES CODAM</title>
+  <style>
+    body {
+      /* background-color: rgb(187, 41, 187); */
+      background-size: 50% auto;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, #ffffff 50%, #0029FA 50%);
+    }
+
+    h1 {
+    position: top;
+    color: #f44647;
+    font-weight: 800;
+    font-size: 140px;
+    line-height: 143px;
+    letter-spacing: -4px;
+    z-index: 1;
+    left: 0;
+    font-family:"Poppins", sans-serif;
+    transform: translate3d(13.5047px, 0px, 0px);
+    }
+
+    div.fixed {
+    position: fixed;
+    width: 50%;
+    bottom: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.1px;
+    font-size: 15px;
+    font-style: normal;
+    color: #0029FA
+    } 
+
+    div.link{
+    position: relative;
+    height: 200px;
+    font-family: 'Poppins', sans-serif;
+    font-style: bold;
+    font-weight: 700;
+}
+a:hover {
+  color: #f44647;
+}
+
+a {
+    letter-spacing: 0;
+}
+
+a:hover,
+a:active {
+  letter-spacing: 5px;
+}
+
+a:after,
+a:before {
+  backface-visibility: hidden;
+  border: 1px solid rgba(rgb(72, 197, 13), 0);
+  bottom: 0px;
+  content: " ";
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  transition: all 280ms ease-in-out;
+  width: 0;
+}
+
+a:hover:after,
+a:hover:before {
+  backface-visibility: hidden;
+  border-color: rgb(72, 197, 13);
+  transition: width 350ms ease-in-out;
+  width: 70%;
+}
+
+a:hover:before {
+  bottom: auto;
+  top: 0;
+  width: 70%;
+}
+    
+
+  </style>
+</head>
+<body>
+  <h1>WELCOME TO FT_SERVICES CHOOSE YOUR SERVICE</h1>
+  
+  <div class="link"><a href="https://192.168.99.100/wordpress/"style="text-decoration: none">Wordpress</a></div>
+  <div class="link"><a href="https://192.168.99.100/phpmyadmin/"style="text-decoration: none">PhPMyAdmin</a></div>
+  <div class="link"><a href="https://192.168.99.100/grafana/"style="text-decoration: none">Grafana</a></div>
+
+  <div class="fixed"> Created by the fannypackman</div>
+</body>
+
+</html>

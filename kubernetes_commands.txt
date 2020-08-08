@@ -1,0 +1,39 @@
+#Start Minikube with a specific		    $ minikube start --driver=<driver_name>
+
+#Stop the local Minikube cluster	    $ minikube stop
+
+#Delete the local Minikube cluster	    $ minikube delete
+
+#To access the Kubernetes Dashboard	    $ minikube dashboard
+
+#Get the URL of the exposed services    $ minikube service hello-minikube --url
+
+//KUBECTL
+#Deploy image				            $ kubectl create deployment "image name" --image=k8s.gcr.io/echoserver:1.10
+
+#Access image -> the option 
+--type=NodePort specifies the type 
+of the Service.				            $ kubectl expose deployment "image name" --type=NodePort --port=8080
+
+#Check if pod is up and running		    $ kubectl get pod
+
+#Delete the Service			            $ kubectl delete services "service name"
+
+#Delete the Deployment			        $ kubectl delete deployment "deployment name"
+
+#Get nodes from the cluster		        $ kubectl get nodes
+
+#Check that kubectl is configured 	
+to talk to your cluster			        $ kubectl version
+
+#To list your deployments		        $ kubectl get deployments
+
+#This command starts a proxy to the 
+Kubernetes API server.			        $ kubectl proxy --port=8080
+
+#This command shows all the information
+on a pod                                $ kubectl describe pod $POD_NAME
+
+#Shows all the information you need     $ kubectl get all
+
+Kubernetis tutorial:

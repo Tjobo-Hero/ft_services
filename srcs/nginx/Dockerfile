@@ -1,5 +1,5 @@
 FROM alpine:latest
-MAINTAINER kmin
+MAINTAINER tvan-cit
 
 RUN apk update && apk add --no-cache bash nginx openssh
 
