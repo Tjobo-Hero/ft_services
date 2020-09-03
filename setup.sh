@@ -29,7 +29,7 @@ minikube addons enable dashboard
 echo -e "${GREEN}LAUNCH KUBERNETES DASHBOARD${END}"
 minikube dashboard &
 
-echo -e "${GREEN}EVAL COMMAND${END}"
+echo -e "${GREEN}SETTING UP LOCAL IMAGE${END}"
 eval $(minikube docker-env)
 
 IP=$(kubectl get node -o=custom-columns='DATA:status.addresses[0].address' | sed -n 2p)
@@ -71,7 +71,7 @@ echo -e "${GREEN}INFLUX DB IMAGE BUILD${END}"
 docker build -t service-influxdb ./influxdb > /dev/null
 echo -e "${GREEN}GRAFANA IMAGE BUILD${END}"
 docker build -t service-grafana ./grafana > /dev/null
-echo -e "${GREEN}>>>>IMAGES BUILD COMPLETED<<<<${END}"
+echo -e "${GREEN}>>>>IMAGE BUILD COMPLETED<<<<${END}"
 
 sleep 5
 

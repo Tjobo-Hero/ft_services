@@ -132,5 +132,5 @@ metadata:
   name: telegraf-secret
 type: Opaque
 stringData:
-  INFLUXDB_USER: adminkmin
-  INFLUXDB_PASSWORD: adminkmin
+  INFLUXDB_USER: admintvan-cit
+  INFLUXDB_PASSWORD: admintvan-cit

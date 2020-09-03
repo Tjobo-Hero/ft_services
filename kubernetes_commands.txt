@@ -36,4 +36,4 @@ on a pod                                $ kubectl describe pod $POD_NAME
 
 #Shows all the information you need     $ kubectl get all
 
-Kubernetis tutorial:
+Go into a running container             $kubectl exec -it wordpress-689994d675-zl24g -- sh

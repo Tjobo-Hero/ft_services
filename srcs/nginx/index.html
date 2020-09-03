@@ -4,16 +4,6 @@
         <title>FT_SERVICES CODAM</title>
 <style>
 
-@import "bourbon";
-
-* {
-	-webkit-transition-property: all;
-	-webkit-transition-duration: .2s;
-  -moz-transition-timing-function: cubic-bezier(100,50,21,6);
-	-moz-transition-property: all;
-	-moz-transition-duration: .2s;
-  -moz-transition-timing-function: cubic-bezier(100,50,21,6);
-}
 h1{  position: top;
     color: #f44647;
     font-weight: 800;
@@ -25,6 +15,13 @@ h1{  position: top;
     font-family:"Poppins", sans-serif;
     transform: translate3d(13.5047px, 0px, 0px);
 }
+
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
+}
+
 body {
   background-color: #0029FA;
   padding-top: 70px;
@@ -39,41 +36,30 @@ a{
     
 }
 
-
-.btn {
-  position: relative;
-  display: inline-block;
-  width: 166px;
-  height: 45px;
-  font-size: 12px;
-  line-height: 45px;
+.button {
   text-align: center;
-  text-transform: uppercase;
-  color: #f44647;
-  cursor: pointer;
-  overflow: hidden;
+  font-size: 1.5em;
+  margin: 0 auto;
+  width: 15%;
+  padding: 10px;
+  border: 1px solid;
+  border-color: #ffffff;
+  background-color: none;
+  transition: 0.35s;
 }
-.btn svg {
-  position: absolute;
-  top: 0; left: 0;
+.button a, active {
+  text-decoration: underline;
+  color: #e7dd84;
 }
-.btn svg rect {
-  fill: none;
-  stroke: #f44647;
-  stroke-width: 3;
-  stroke-dasharray: 422, 0;
+.button a:hover {
+  text-decoration: underline;
+  color: black;
 }
-.btn:hover svg rect {
-  stroke-width: 8;
-  stroke-dasharray: 10, 310;
-  stroke-dashoffset: 33;
-}
-
-.btn:hover {
-  color:#f44647;
-  font-size:18px;
-  letter-spacing:1px;
-  font-weight:bold;
+.button:hover {
+  color: black;
+  background-color: red;
+  border-color: white;
+  transition: 0.45s;
 }
 
 div.fixed {
@@ -91,25 +77,18 @@ div.fixed {
 </style>
 </head>
 <body>
+
 <h1>WELCOME TO FT_SERVICES CHOOSE YOUR SERVICE</h1>
-<div class="btn">
-  <svg>
-    <rect x="0" y="0" fill="none" width="166" height="45"/>
-  </svg>
-  <a href="/wordpress/"style="text-decoration:none;color:#ffffff" > Wordpress </a>
+<div class="button">
+  <a href="/wordpress/"style="text-decoration:none;color:#ffffff" > Wordpress</a>
 </div>
-<div class="btn">
-        <svg>
-          <rect x="0" y="0" fill="none" width="166" height="45"/>
-        </svg>
-        <a href="/phpmyadmin/"style="text-decoration:none;color:#ffff" > PhpMyadmin </a>
-      </div>
+
+<div class="button">
+  <a href="/phpmyadmin/"style="text-decoration:none;color:#ffff" > PhpMyadmin</a>
+  </div>
 </body>
-<div class="btn">
-    <a href="/grafana/"style="text-decoration:none;color:#ffff" > Grafana </a>
-        <svg>
-          <rect x="0" y="0" fill="none" width="166" height="45"/>
-        </svg>
+<div class="button">
+  <a href="/grafana/"style="text-decoration:none;color:#ffff" > Grafana</a>
       </div>
 <div class="fixed"> Created by the fannypackman</div>
 </body>

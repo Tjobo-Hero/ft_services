@@ -152,7 +152,7 @@ metadata:
 type: Opaque
 stringData:
   INFLUXDB_DB: telegraf
-  INFLUXDB_ADMIN_USER: adminkmin
-  INFLUXDB_ADMIN_PASSWORD: adminkmin
-  INFLUXDB_USER: userkmin
-  INFLUXDB_USER_PASSWORD: userkmin
+  INFLUXDB_ADMIN_USER: admintvan-cit
+  INFLUXDB_ADMIN_PASSWORD: admintvan-cit
+  INFLUXDB_USER: usertvan-cit
+  INFLUXDB_USER_PASSWORD: usertvan-cit
