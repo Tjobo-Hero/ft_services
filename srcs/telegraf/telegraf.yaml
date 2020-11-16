@@ -5,6 +5,7 @@ metadata:
   labels:
     app: telegraf
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: telegraf
@@ -13,25 +14,24 @@ spec:
       labels:
         app: telegraf
     spec:
+      serviceAccount: tvan-cit
       containers:
       - name: telegraf
-        image: service-telegraf
+        image: telegraf
         imagePullPolicy: Never
-        volumeMounts:
-        - name: telegraf-config
-          subPath: telegraf.conf
-          mountPath: /etc/telegraf/telegraf.conf
-          readOnly: true
-        - name: docker-socket
-          mountPath: /var/run/docker.sock
         envFrom:
-        - secretRef:
-            name: telegraf-secret
-      volumes:
-      - name: telegraf-config
-        configMap:
-          name: telegraf-config
-      - name: docker-socket
-        hostPath:
-          path: /var/run/docker.sock
-          type: Socket
+          - secretRef:
+              name: influx-secret
+
+---
+
+  # ---------- Secret ---------- #
+apiVersion: v1
+kind: Secret
+metadata:
+  name: influx-secret
+type: Opaque
+stringData:
+  INFLUX_URL: http://influxdb-svc:8086
+  INFLUX_USER: user
+  INFLUX_PASSWORD: pass

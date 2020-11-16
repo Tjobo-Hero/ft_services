@@ -1,12 +1,28 @@
 FROM alpine:latest
-MAINTAINER tvan-cit
 
-RUN apk update && apk add --no-cache bash nginx openssh
+RUN apk update && \
+	apk add nginx && \
+	apk add openssh
 
-COPY ./index.html /var/www/localhost/htdocs
-COPY ./entry.sh /tmp/entry.sh
-RUN chmod +x /tmp/entry.sh
+RUN mkdir /var/run/nginx && \
+	adduser -D -g 'www' www && \
+	chown -R www:www /var/lib/nginx
 
-EXPOSE 80 443 22
+RUN	mkdir /interwebs && \
+	chown -R www:www /interwebs
 
-ENTRYPOINT ["/tmp/entry.sh"]
+COPY index.html /interwebs/index.html
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY tvan-cit.key /etc/ssl/tvan-cit.key
+COPY tvan-cit.crt /etc/ssl/tvan-cit.crt
+
+# Create a user for the ssh.
+run adduser -h / -D tvan-cit && \
+	echo "tvan-cit:thisisworking" | chpasswd
+
+COPY sshd_config /etc/ssh/sshd_config
+
+COPY start.sh /start.sh
+CMD ./start.sh
+
+EXPOSE 22 80 443

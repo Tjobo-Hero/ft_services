@@ -1,6 +1,10 @@
 #Start Minikube with a specific		    $ minikube start --driver=<driver_name>
 
+Check the status of the cluster			$ minkube status
+
 #Stop the local Minikube cluster	    $ minikube stop
+
+Deploy a service 						$ kubectl create deployment hello-minikube
 
 #Delete the local Minikube cluster	    $ minikube delete
 
@@ -15,13 +19,25 @@
 --type=NodePort specifies the type 
 of the Service.				            $ kubectl expose deployment "image name" --type=NodePort --port=8080
 
-#Check if pod is up and running		    $ kubectl get pod
+#Check if pod is up and running		    $ kubectl get pod pod-name
+
+#List of running pods					$ kubectl get pods
+
+#Get information on pod					$ kubectl describe pod pod-name
+
+#Get additional information 
+on pods									$ kubectl get pods -o wide
+
+#List all services in the cluster		$ kubectl get services ; kubectl get svc
+
+#Get url of a service					$ minikube service myapp-servic --url
 
 #Delete the Service			            $ kubectl delete services "service name"
 
 #Delete the Deployment			        $ kubectl delete deployment "deployment name"
 
-#Get nodes from the cluster		        $ kubectl get nodes
+#Get all the nodes that are part of 
+the cluster						        $ kubectl get nodes
 
 #Check that kubectl is configured 	
 to talk to your cluster			        $ kubectl version
@@ -36,4 +52,69 @@ on a pod                                $ kubectl describe pod $POD_NAME
 
 #Shows all the information you need     $ kubectl get all
 
-Go into a running container             $kubectl exec -it wordpress-689994d675-zl24g -- sh
+#Go into a running container            $ kubectl exec -it wordpress-689994d675-zl24g -- sh
+
+#Deploy an applicaton on a cluster		$ kubectl run hello-minikube
+
+#Get information about the cluster		$ kubectl cluster-information
+
+#Delete a service 						$ kubectl delete services
+
+#Creating pod from existing docker
+image									$ kubectl run nginx --image=nginx
+
+#Delete a running pod					$ kubectl delete pod pod-name
+
+#Get replication controller 			$ kubectl get replicationcontroller
+
+#Delete replication controller			$ kubectl delete replicationcontroller namepod-rc
+
+#Get replicaset							$ kubectl get replicaset(s)
+
+#Replace a pod (scale up or scale down)
+replicas in the cluster					$ kubectl replace -f pod.yml
+
+#Replace a pod (scale up or scale down)
+replicas in the cluster	using command
+line but original file will not be 
+updated 								$ kubectl scale --replicas=6 -f pod.yml
+
+#Replace a pod (scale up or scale down)
+replicas in the cluster	using command
+line but original file will not be 
+updated									$ kubectl scale replicaset name-replicaset --replicas=2
+
+#Scale up using edit via text editor 	$ kubectl edit replicaset name-replicaset
+
+#Delete replicaset, also deletes
+all underlying pods						$ kubectl delete replicaset name-replicaset
+
+#Get more information on replicaset		$ kubectl describe replicaset name-replicaset
+
+#Get deployments						$ kubectl get deployement(s)
+
+#Get rollout status						$ kubectl rollout status deployment/my-deployment-name
+
+#Get rollout history					$ kubectl rollout status deployment/my-deployment-name
+
+#Apply changes to file and trigger 
+new rollout								$ kubectl apply -f deployment-name.yml
+
+#Undo change and go back to the previous
+deployment								$ kubectl rollout undo deployment/deployment-name.yml
+
+#Change/update image of a deployment	$ kubectl set image deployment/deployment-name image=newimage
+
+#Instruct Kubernetes to record the 
+cause of change							$ kubectl create -f deployment.yml --record
+
+#Instruct Kubernetes to record the 
+cause of change							$ kubectl edit deployment deployment-name --record
+
+
+kubectl delete --all deployment
+kubectl delete --all services
+kubectl delete --all secret
+kubectl delete --all configmap
+kubectl delete --all pv,pvc
+kubectl delete --all pod

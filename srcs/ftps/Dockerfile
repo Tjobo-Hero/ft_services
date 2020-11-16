@@ -1,10 +1,14 @@
 FROM alpine:latest
 
-RUN apk upgrade && apk add openssl vsftpd
+RUN apk upgrade
+RUN apk add openssl vsftpd
+RUN apk add jq curl
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -subj '/C=NL/ST=NH/O=Codam/CN=tvan-cit' -keyout /etc/ssl/private/vsftpd.key -out /etc/ssl/certs/vsftpd.crt
+RUN mkdir -p /var/ftp
 
-COPY ./entry.sh /tmp/entry.sh
-RUN chmod 777 /tmp/entry.sh
+COPY vsftpd.conf /etc/vsftpd/vsftpd.conf
+COPY start.sh /tmp/
 
-EXPOSE 20 21 20000-20001
+EXPOSE 20 21 30001 30002 30003
 
-ENTRYPOINT ["/tmp/entry.sh"]
+ENTRYPOINT ["/tmp/start.sh"]

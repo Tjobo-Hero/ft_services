@@ -13,7 +13,3 @@ InfluxDB	3000?
 SQL WORDPRESS:
 
 https://www.wpbeginner.com/beginners-guide/beginners-guide-to-wordpress-database-management-with-phpmyadmin/
-
-Ingress controller:
-
-https://github.com/kubernetes/ingress-nginx/issues/5401

@@ -5,11 +5,12 @@ metadata:
   labels:
     app: influxdb
 spec:
-  strategy:
-    type: Recreate
+  replicas: 1
   selector:
     matchLabels:
       app: influxdb
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
@@ -17,50 +18,59 @@ spec:
     spec:
       containers:
       - name: influxdb
-        image: service-influxdb
+        image: influxdb
         imagePullPolicy: Never
         ports:
         - containerPort: 8086
+          name: inf
         volumeMounts:
-        - name: influxdb-pv-claim
-          mountPath: /var/lib/influxdb
-        - name: influxdb-config
-          subPath: influxdb.conf
-          mountPath: /etc/influxdb/influxdb.conf
-          readOnly: true
-        envFrom:
-        - secretRef:
-            name: influxdb-secret
+        - name: influxdb-persistent-storage
+          mountPath: /root
       volumes:
-      - name: influxdb-pv-claim
+      - name: influxdb-persistent-storage
         persistentVolumeClaim:
           claimName: influxdb-pv-claim
-      - name: influxdb-config
-        configMap:
-          name: influxdb-config
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: influxdb-pv-claim
-  labels:
-    app: influxdb
-spec:
-  accessModes:
-  - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
+
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: influxdb
-  labels:
-    app: influxdb
 spec:
+  ports:
+  - name: inf
+    port: 8086
+    protocol: TCP
+    targetPort: 8086
   selector:
     app: influxdb
-  ports:
-  - port: 8086
-    targetPort: 8086
+  type: ClusterIP
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: influxdb-pv-claim
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: influx-pv-volume
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 1Gi
+  accessModes:
+  - ReadWriteOnce
+  hostPath:
+    path: "/root"

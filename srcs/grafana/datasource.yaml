@@ -1,0 +1,11 @@
+apiVersion: 1
+
+datasources:
+  - name: graf-influx
+    type: influxdb
+    access: proxy
+    database: site
+    user: tvan-cit
+    url: http://influxdb:8086
+    secureJsonData:
+      password: thisisworking
