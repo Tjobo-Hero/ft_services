@@ -18,13 +18,13 @@ spec:
     port: 21
     protocol: TCP
   - name: passive-1
-    port: 30001
+    port: 30000
     protocol: TCP
   - name: passive-2
-    port: 30002
+    port: 30001
     protocol: TCP
   - name: passive-3
-    port: 30003
+    port: 30002
     protocol: TCP
 
 ---
@@ -55,9 +55,9 @@ spec:
           name: ftp-data
         - containerPort: 21
           name: ftp-control
-        - containerPort: 30001
+        - containerPort: 30000
           name: passive-1
-        - containerPort: 30002
+        - containerPort: 30001
           name: passive-2
-        - containerPort: 30003
+        - containerPort: 30002
           name: passive-3

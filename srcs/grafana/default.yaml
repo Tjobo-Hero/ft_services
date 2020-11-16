@@ -5,8 +5,8 @@ datasources:
     isDefault: true
     access: proxy
     database: telegraf
-    user: tvan-cit
-    password: thisisworking
+    user: user
+    password: pass
     url: http://influxdb-svc:8086
     jsonData:
       httpMode: GET

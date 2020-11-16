@@ -9,7 +9,7 @@ URL=$(curl --cacert ${CACERT} --header "Authorization: Bearer ${TOKEN}" -X GET $
 
 cd interwebs/
 wp db create
-wp core install --url=${URL}:5050 --title=Wordpress --admin_user=tvan-cit --admin_password=thisisworking --admin_email=tvan-cit@student.codam.nl --skip-email
+wp core install --url=${URL}:5050 --title=Wordpress --admin_user=tvan-cit --admin_password=thisisworking --admin_email=wbarendr@student.codam.nl --skip-email
 wp user create user1 user1@example.com --user_pass=pass --role=subscriber
 wp user create user2 user2@example.com --user_pass=pass --role=subscriber
 wp user create editor1 editor1@example.com --user_pass=pass --role=editor

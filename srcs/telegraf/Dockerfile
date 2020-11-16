@@ -1,4 +1,11 @@
+# We need to build from Alpine Linux.
 FROM alpine:latest
+
+# Download and install Telegraf.
+# RUN wget https://dl.influxdata.com/telegraf/releases/telegraf-1.13.3-static_linux_amd64.tar.gz && \
+# 	tar -C . -xzf telegraf-1.13.3-static_linux_amd64.tar.gz && \
+# 	chmod +x telegraf/telegraf && \
+# 	cp telegraf/telegraf /usr/bin/
 
 RUN apk update --no-cache && \
 	apk upgrade --no-cache && \

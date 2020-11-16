@@ -2,6 +2,7 @@ FROM alpine:latest
 
 RUN apk update && \
 	apk add nginx && \
+	# apk add openssl && \
 	apk add openssh
 
 RUN mkdir /var/run/nginx && \
@@ -13,8 +14,8 @@ RUN	mkdir /interwebs && \
 
 COPY index.html /interwebs/index.html
 COPY nginx.conf /etc/nginx/nginx.conf
-COPY tvan-cit.key /etc/ssl/tvan-cit.key
-COPY tvan-cit.crt /etc/ssl/tvan-cit.crt
+COPY private.key /etc/ssl/private.key
+COPY public.crt /etc/ssl/public.crt
 
 # Create a user for the ssh.
 run adduser -h / -D tvan-cit && \
