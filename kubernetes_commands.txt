@@ -111,6 +111,12 @@ cause of change							$ kubectl create -f deployment.yml --record
 #Instruct Kubernetes to record the 
 cause of change							$ kubectl edit deployment deployment-name --record
 
+#Get all service accounts				$ kubectl get serviceaccounts ; sa									https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
+
+#List all service accounts 				$ kubectl get sa -A
+
+#Get info on cluster roles 				$ kubectl get clusterrole name-cluster								https://www.youtube.com/watch?v=QyG0WSCszYg
+
 
 kubectl delete --all deployment
 kubectl delete --all services

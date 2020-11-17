@@ -93,14 +93,17 @@ docker build -t grafana ./srcs/grafana
 echo -e "${GREEN}START GRAFANA DEPLOYMENT${END}"
 kubectl apply -f srcs/grafana/grafana.yaml
 
+NAMESPACE=monitoring
+POD_NAME=$(kubectl get pods  -o=name -n "${NAMESPACE}" | grep grafana | cut -f2 -d\/)
+kubectl exec -it -n "${NAMESPACE}" "${POD_NAME}" -- /bin/sh -c "/usr/share/grafana/bin/grafana-cli admin reset-admin-password ${POD_NAME}"
+
 echo -e "${GREEN}START >>>>IMAGE BUILD COMPLETED<<<<${END}"
 echo -e "${GREEN}START >>>>DEPLOYMENT COMPLETED<<<<${END}"
 
 
 # GETTING IP LOCAL IMAGE #
 IP=$(kubectl get node -o=custom-columns='DATA:status.addresses[0].address' | sed -n 2p)
-# IP=$(minikube ip)
-
 echo -e "${GREEN}IP:${IP}${END}"
+
 echo -e "${GREEN}START LAUNCH KUBERNETES DASHBOARD${END}"
 minikube dashboard

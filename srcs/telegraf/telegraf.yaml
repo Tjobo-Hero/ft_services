@@ -22,13 +22,7 @@ spec:
         envFrom:
           - secretRef:
               name: influx-secret
-        # ports:
-        # - containerPort: 8125
-        #   name: http
-
 ---
-
-  # ---------- Secret ---------- #
 apiVersion: v1
 kind: Secret
 metadata:
