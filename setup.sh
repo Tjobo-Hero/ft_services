@@ -93,9 +93,9 @@ docker build -t grafana ./srcs/grafana
 echo -e "${GREEN}START GRAFANA DEPLOYMENT${END}"
 kubectl apply -f srcs/grafana/grafana.yaml
 
-NAMESPACE=monitoring
-POD_NAME=$(kubectl get pods  -o=name -n "${NAMESPACE}" | grep grafana | cut -f2 -d\/)
-kubectl exec -it -n "${NAMESPACE}" "${POD_NAME}" -- /bin/sh -c "/usr/share/grafana/bin/grafana-cli admin reset-admin-password ${POD_NAME}"
+# NAMESPACE=grafana
+# POD_NAME=$(kubectl get pods  -o=name "${NAMESPACE}" | grep grafana | cut -f2 -d\/)
+# kubectl exec -it "${NAMESPACE}" "${POD_NAME}" -- /bin/sh -c "/usr/share/grafana/bin/grafana-cli admin reset-admin-password ${POD_NAME}"
 
 echo -e "${GREEN}START >>>>IMAGE BUILD COMPLETED<<<<${END}"
 echo -e "${GREEN}START >>>>DEPLOYMENT COMPLETED<<<<${END}"

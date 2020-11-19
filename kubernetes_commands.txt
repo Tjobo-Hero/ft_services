@@ -117,6 +117,8 @@ cause of change							$ kubectl edit deployment deployment-name --record
 
 #Get info on cluster roles 				$ kubectl get clusterrole name-cluster								https://www.youtube.com/watch?v=QyG0WSCszYg
 
+#Get info on running pods 				$ kubectl logs pod-name
+
 
 kubectl delete --all deployment
 kubectl delete --all services
@@ -124,3 +126,8 @@ kubectl delete --all secret
 kubectl delete --all configmap
 kubectl delete --all pv,pvc
 kubectl delete --all pod
+
+Usefull website:
+
+# Proxy's and reverse proxy's 			$ https://medium.com/@chamilad/load-balancing-and-reverse-proxying-for-kubernetes-services-f03dd0efe80
+# Nginx reverse proxy					$ https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/

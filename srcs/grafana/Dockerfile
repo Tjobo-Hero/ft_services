@@ -1,7 +1,6 @@
 # Grafana is a open source analytics & monitoring solution for every database.
 
-# building from Alpine Linux
-FROM alpine:3.12
+FROM alpine:latest
 
 # updating the packagelist and installing the necessary packages
 RUN apk update && \
@@ -24,3 +23,4 @@ EXPOSE 3000
 # going to the correct workdirectory and start the grafana server
 WORKDIR grafana-7.2.0
 CMD ./bin/grafana-server
+
