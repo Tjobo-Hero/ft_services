@@ -16,7 +16,7 @@ COPY nginx.conf /etc/nginx/nginx.conf
 COPY private.key /etc/ssl/private.key
 COPY public.crt /etc/ssl/public.crt
 
-# Create a user for the ssh.
+# CREAT SSH USER
 run adduser -h / -D tvan-cit && \
 	echo "tvan-cit:thisisworking" | chpasswd
 

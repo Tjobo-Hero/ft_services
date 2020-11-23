@@ -7,7 +7,7 @@ spec:
   selector:
     app: mysql
   ports:
-  - name: sql
+  - name: msql
     port: 3306
     protocol: TCP
     targetPort: 3306
