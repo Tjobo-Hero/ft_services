@@ -5,23 +5,23 @@ GREEN='\x1b[32m'
 END='\x1b[0m'
 BLINK='\x1b[5m'
 
-# #STOP OTHER RUNNING PROCESSES#
-# minikube stop
-# minikube delete
+#STOP OTHER RUNNING PROCESSES#
+minikube stop
+minikube delete
 
-# # REMOVE OLD MINIKUBE AND LINKING TO GOINFRE #
-# rm -rf ~/.minikube
-# mkdir -p ~/goinfre/minikube
-# ln -s ~/goinfre/minikube ~/.minikube
+# REMOVE OLD MINIKUBE AND LINKING TO GOINFRE #
+rm -rf ~/.minikube
+mkdir -p ~/goinfre/minikube
+ln -s ~/goinfre/minikube ~/.minikube
 
-# # STARTING UP KUBERNETES #
-# echo -e "${GREEN}SETTING UP MINIKUBE${END}"
-# minikube start --driver=virtualbox
+# STARTING UP KUBERNETES #
+echo -e "${GREEN}SETTING UP MINIKUBE${END}"
+minikube start --driver=virtualbox
 
-# # ACTIVATING ADDONS #
-# echo -e "${GREEN}Activating addons...${END}"
-# minikube addons enable metallb
-# minikube addons enable dashboard
+# ACTIVATING ADDONS #
+echo -e "${GREEN}Activating addons...${END}"
+minikube addons enable metallb
+minikube addons enable dashboard
 
 # CREATING SECRT METALLB #
 kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
@@ -33,11 +33,7 @@ eval $(minikube docker-env)
 
 # GETTING IP LOCAL IMAGE #
 IP=$(kubectl get node -o=custom-columns='DATA:status.addresses[0].address' | sed -n 2p)
-# IP=$(minikube ip)
 echo -e "${GREEN}IP:${IP}${END}"
-
-# BUILDING DOCKER IMAGES #
-echo -e "${GREEN}>>>>BUIDLING IMAGES<<<<${END}"
 
 # NGINX # 
 echo -e "${GREEN}START NGINX IMAGE BUILD${END}"
