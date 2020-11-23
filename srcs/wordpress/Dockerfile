@@ -17,7 +17,7 @@ RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.ph
 
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY start.sh /start.sh
-COPY wp-config.php interwebs/
+# COPY wp-config.php interwebs/
 
 RUN wp core download --path=interwebs
 

@@ -1,27 +1,27 @@
-#!/bin/zsh
+#!/bin/bash
 
 # COLORS FOR ECHO #
 GREEN='\x1b[32m'
 END='\x1b[0m'
 BLINK='\x1b[5m'
 
-#STOP OTHER RUNNING PROCESSES#
-minikube stop
-minikube delete
+# #STOP OTHER RUNNING PROCESSES#
+# minikube stop
+# minikube delete
 
-# REMOVE OLD MINIKUBE AND LINKING TO GOINFRE #
-rm -rf ~/.minikube
-mkdir -p ~/goinfre/minikube
-ln -s ~/goinfre/minikube ~/.minikube
+# # REMOVE OLD MINIKUBE AND LINKING TO GOINFRE #
+# rm -rf ~/.minikube
+# mkdir -p ~/goinfre/minikube
+# ln -s ~/goinfre/minikube ~/.minikube
 
-# STARTING UP KUBERNETES #
-echo -e "${GREEN}SETTING UP MINIKUBE${END}"
-minikube start --driver=virtualbox
+# # STARTING UP KUBERNETES #
+# echo -e "${GREEN}SETTING UP MINIKUBE${END}"
+# minikube start --driver=virtualbox
 
-# ACTIVATING ADDONS #
-echo -e "${GREEN}Activating addons...${END}"
-minikube addons enable metallb
-minikube addons enable dashboard
+# # ACTIVATING ADDONS #
+# echo -e "${GREEN}Activating addons...${END}"
+# minikube addons enable metallb
+# minikube addons enable dashboard
 
 # CREATING SECRT METALLB #
 kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
